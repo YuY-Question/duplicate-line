@@ -1,0 +1,67 @@
+{
+  "name": "duplicate-line",
+  "displayName": "Duplicate Line",
+  "description": "Duplicate current line or selection with keyboard shortcut",
+  "version": "1.0.0",
+  "publisher": "YuY",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "duplicate",
+    "line",
+    "productivity",
+    "editor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YuY-Question/duplicate-line.git"
+  },
+  "activationEvents": [
+    "onCommand:duplicate-line.duplicate"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "duplicate-line.duplicate",
+        "title": "Duplicate Line",
+        "category": "Text Editing"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "duplicate-line.duplicate",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "command-palette": [
+        {
+          "command": "duplicate-line.duplicate"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "duplicate-line.duplicate",
+          "group": "1_modification"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.9.4"
+  }
+}
